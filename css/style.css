@@ -1,3 +1,27 @@
-div{
-    background-color: blue;
+.loader {
+    height: 200px;
+    width: 200px;
+    top: 0px;
+    left: 10px;
+    border : 20px solid #E56399;
+    border-top: 20px solid #7FD1B9;
+    border-radius: 50%;
+    background-color: yellow;
+    animation: createLoader 2s steps(5) 1s infinite normal;
+    transition: all 2s ease 1s infinite ;
+}
+
+@keyframes createLoader {
+    from {
+        transform: rotate(0deg);
+        /* transition-timing-function: ease-in; */
+    }
+    to {
+        transform: rotate(360deg);
+        /* transition-timing-function: cubic-bezier(5); */
+    }
+}
+
+.loader:hover {
+    background-color:black;
 }
