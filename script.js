@@ -140,3 +140,108 @@ function cnt_vowels(st){
 }
 let xy = cnt_vowels("aryansolanki");
 console.log(xy);
+
+// chap : 6 (Classes and Objects)
+const employee = {
+    // both are valid representation of function in object
+    calTax1() {
+        console.log("The rate is 10%");
+    },
+    calTax2 : function() {
+        console.log("The rate is 15%");
+    }
+};
+
+const AryanSolanki = {
+    salary : 50000,
+};
+
+// To use employee as prototype
+/*
+Prototype referce as an object.
+If an object and prototype has same method then object's methos will use.
+*/
+
+const xyz = {
+    salary : 40000,
+    // have same method such that we use this object's method
+    calTax1() {
+        console.log("The rate is 20%");
+    }
+};
+AryanSolanki.__proto__ = employee;
+xyz.__proto__ = employee;
+
+// Classes :
+class ToyotaCar {
+    constructor() { // custom constructor
+        console.log("Createing new objects");
+    }
+    start() {
+        console.log("Start");
+    }
+    stop() {
+        console.log("stop");
+    }
+    setBrand(brand) {
+        this.brand = brand; // this keyword use for object property
+    }
+}
+
+let fortuner = new ToyotaCar(); // define object from the class
+fortuner.setBrand("fortuner");
+
+// inheritance in class
+class Parent {
+    parent() {
+        console.log("Parent");
+    }
+};
+
+class Child extends Parent {};
+
+/*
+If parent and child have same methods then child's method will be used.
+(Method overriding)
+*/
+
+let obj1 = new Child();
+
+class person {
+    constructor() {
+        this.species = "Homo";
+    }
+    eat() {
+        console.log("eat");
+    }
+};
+
+class enginner extends person {
+    constructor(branch) {
+        super();  // to invoke parent class constructor
+        this.branch = branch;
+    }
+    work() {
+        super.eat();
+        console.log("To solve the problems");
+    }
+};
+
+let engObj = new enginner("B.Tech");
+
+// Error handling (try catch block)
+let a1 = 5;
+let b1 = 10;
+
+console.log("a1 = ",a1);
+console.log("b1 = ",b1);
+console.log("a1 + b1 = ",a1+b1);
+try {
+    console.log("a1 + b1 = ",a1+c1); // error
+}
+catch(err) {
+    console.log(err);
+}
+console.log("a1 + b1 = ",a1+b1);
+console.log("a1 + b1 = ",a1+b1);
+
